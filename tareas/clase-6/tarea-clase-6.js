@@ -17,7 +17,6 @@ $botonIngresar.onclick = function () {
      let numeroDelGrupoFamiliar = Number(document.querySelector("#numeroDelGrupoFamiliar").value);
      let nodoPaginaTexto = document.querySelector('body')
      let divFamilia = document.querySelector("div#divFamilia")
-     console.log(divFamilia)
 
      if (numeroDelGrupoFamiliar>0&&numeroDelGrupoFamiliar!=null){
           document.querySelector("div#divFamilia").style= "display:block"
@@ -50,7 +49,19 @@ return false
 
 }    
 
+let $botonAceptar = document.querySelector("#aceptar")
 
+$botonAceptar.onclick= function(){
+     let numeroFamilia= document.querySelectorAll("#inputFamilia")
+     console.log(numeroFamilia)
+
+     let numerosEnElArray 
+     for (i=0;i<numeroFamilia.length;i++) {
+          console.log(numeroFamilia[i].value)
+          
+     }
+
+}
 
 //
 
