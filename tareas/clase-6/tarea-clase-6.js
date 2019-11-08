@@ -11,48 +11,39 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 const $botonIngresar = document.querySelector("#ingresar")
 
+
 $botonIngresar.onclick = function () {
-     numeroDelGrupoFamiliar = Number(document.querySelector("#numeroDelGrupoFamiliar").value);
+     let numeroDelGrupoFamiliar = Number(document.querySelector("#numeroDelGrupoFamiliar").value);
      let nodoPaginaTexto = document.querySelector('body')
-     let nuevoDiv = document.createElement("div")
-     nuevoDiv.id = "divFamilia"
-     nuevoDiv.innerText = 'Ingresá las edades de tus familiares en el siguiente formulario:'
-     nodoPaginaTexto.appendChild(nuevoDiv)
-
-     for (i = 1; i <= numeroDelGrupoFamiliar; i++) {
-          let nodoPaginaInput = document.querySelector('body')
-
-          let nuevoFormulario = document.createElement("form")
-
-          let nuevoInput = document.createElement("input")
-          nuevoInput.id = "inputFamilia"
-          nuevoInput.type = 'number'
-
-          let nuevoLabel = document.createElement("label")
-          nuevoLabel.innerText = ("Integrante " + i + ': ')
-
-          nodoPaginaInput.appendChild(nuevoFormulario)
-          nuevoFormulario.appendChild(nuevoLabel)
-          nuevoFormulario.appendChild(nuevoInput)
-
-          if (i == numeroDelGrupoFamiliar) {
-               let $botonConfirmar = document.createElement("button")
-               $botonConfirmar.id = 'botonConfirmar'
-               $botonConfirmar.innerText = 'Confirmar'
-               nodoPaginaInput.appendChild($botonConfirmar)
-          }
-
-     }
+     let divFamilia = document.querySelector("div#divFamilia")
+     console.log(divFamilia)
 
 
-     return false
+     //divFamilia.innerText = 'Ingresá las edades de tus familiares en el siguiente formulario:'
+     //nodoPaginaTexto.appendChild(nuevo)
+     /*
+for (i = 1; i <= numeroDelGrupoFamiliar; i++) {
+     let nodoPaginaInput = document.querySelector('body')
+
+     let nuevoFormulario = document.createElement("form")
+
+     let nuevoInput = document.createElement("input")
+     nuevoInput.id = "inputFamilia"
+     nuevoInput.type = 'number'
+
+     let nuevoLabel = document.createElement("label")
+     nuevoLabel.innerText = ("Integrante " + i + ': ')
+
+     nodoPaginaInput.appendChild(nuevoFormulario)
+     nuevoFormulario.appendChild(nuevoLabel)
+     nuevoFormulario.appendChild(nuevoInput)
+
                if (i == numeroDelGrupoFamiliar) { 
                     let $botonConfirmar = document.createElement("button")
                     $botonConfirmar.id = 'botonConfirmar'
                     $botonConfirmar.innerText = 'Confirmar'
                     nodoPaginaInput.appendChild($botonConfirmar)*/
 }
-
 
 //return false
 
