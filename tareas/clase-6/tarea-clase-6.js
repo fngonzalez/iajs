@@ -46,9 +46,15 @@ $botonIngresar.onclick = function () {
 
 
      return false
+               if (i == numeroDelGrupoFamiliar) { 
+                    let $botonConfirmar = document.createElement("button")
+                    $botonConfirmar.id = 'botonConfirmar'
+                    $botonConfirmar.innerText = 'Confirmar'
+                    nodoPaginaInput.appendChild($botonConfirmar)*/
 }
 
 
+//return false
 
 
 /*
