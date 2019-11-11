@@ -50,7 +50,7 @@ $botonIngresar.onclick = function () {
 }
 
 
-let promediar = function (arrayDeNumeros,numeroParaPromediar) {
+let promediar = function (arrayDeNumeros, numeroParaPromediar) {
      let cantidadDeNumeros = (arrayDeNumeros.length)
 
      return numeroParaPromediar / cantidadDeNumeros
@@ -62,7 +62,7 @@ let $botonAceptar = document.querySelector("#aceptar")
 
 $botonAceptar.onclick = function () {
      let edadesEnLaFamilia = document.querySelectorAll("#inputFamilia")
-     
+
      let mayorDeEdad = 0
      let menorDeEdad = 0
      let edadPromedio = 0
@@ -71,28 +71,21 @@ $botonAceptar.onclick = function () {
           if (mayorDeEdad < edadesEnLaFamilia[i].value) {
                mayorDeEdad = Number(edadesEnLaFamilia[i].value)
 
-          } if (menorDeEdad > edadesEnLaFamilia[i].value||menorDeEdad==0) {
+          } if (menorDeEdad > edadesEnLaFamilia[i].value || menorDeEdad == 0) {
 
                menorDeEdad = Number(edadesEnLaFamilia[i].value)
           }
           edadesSumadas += Number(edadesEnLaFamilia[i].value)
-     } edadPromedio = promediar(edadesEnLaFamilia,edadesSumadas)
-     
-     let edadesRelevantes=document.querySelector("div#edades-relevantes")
-     edadesRelevantes.innerText= 'La edad promedio de tu familia es de ='+edadPromedio
-//     console.log(edadPromedio)
+     } edadPromedio = promediar(edadesEnLaFamilia, edadesSumadas)
+
+     let edadesRelevantes = document.querySelector("div#edades-relevantes")
+     edadesRelevantes.innerText = 'La edad promedio de tu familia es de: ' +
+          edadPromedio + " años" + 'La persona con menor edad tiene: ' + menorDeEdad + " años." +
+          '<br/>La persona con menor edad tiene: ' + mayorDeEdad + " años."
 }
-
-//
-
 
 /*
 
-               /*if (i == numeroDelGrupoFamiliar) {
-                    let $botonConfirmar = document.createElement("button")
-                    $botonConfirmar.id = 'botonConfirmar'
-                    $botonConfirmar.innerText = 'Confirmar'
-                    nodoPaginaInput.appendChild($botonConfirmar)}
 TAREA:
 Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar el salario anual de
 cada integrante de la familia que trabaje. Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario
