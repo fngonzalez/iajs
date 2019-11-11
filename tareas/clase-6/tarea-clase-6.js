@@ -18,48 +18,68 @@ $botonIngresar.onclick = function () {
      let nodoPaginaTexto = document.querySelector('body')
      let divFamilia = document.querySelector("div#divFamilia")
 
-     if (numeroDelGrupoFamiliar>0&&numeroDelGrupoFamiliar!=null){
-          document.querySelector("div#divFamilia").style= "display:block"
+     if (numeroDelGrupoFamiliar > 0 && numeroDelGrupoFamiliar != null) {
+          document.querySelector("div#divFamilia").style = "display:block"
      }
 
 
 
      //divFamilia.innerText = 'Ingresá las edades de tus familiares en el siguiente formulario:'
      //nodoPaginaTexto.appendChild(nuevo)
-     
-for (i = 1; i <= numeroDelGrupoFamiliar; i++) {
-     let formularioFamilia =document.querySelector('form#formulario-familiar')
-     let nuevoFormulario = document.createElement("form")
-     let nuevoInput = document.createElement("input")
-     nuevoInput.id = "inputFamilia"
-     nuevoInput.type = 'number'
 
-     let nuevoLabel = document.createElement("label")
-     nuevoLabel.innerText = ("Integrante " + i + ': ')
+     for (i = 1; i <= numeroDelGrupoFamiliar; i++) {
+          let formularioFamilia = document.querySelector('form#formulario-familiar')
+          let nuevoFormulario = document.createElement("form")
+          let nuevoInput = document.createElement("input")
+          nuevoInput.id = "inputFamilia"
+          nuevoInput.type = 'number'
 
-     formularioFamilia.appendChild(nuevoFormulario)
-     
-     nuevoFormulario.appendChild(nuevoLabel)
-     nuevoFormulario.appendChild(nuevoInput)
+          let nuevoLabel = document.createElement("label")
+          nuevoLabel.innerText = ("Integrante " + i + ': ')
+
+          formularioFamilia.appendChild(nuevoFormulario)
+
+          nuevoFormulario.appendChild(nuevoLabel)
+          nuevoFormulario.appendChild(nuevoInput)
+
+     }
+
+
+     return false
 
 }
 
 
-return false
+let promediar= function(arrayDeNumeros){
+     let cantidadDeNumeros= (arrayDeNumeros.length+1)
 
-}    
+     return arrayDeNumeros/cantidadDeNumeros
+}
+
+
 
 let $botonAceptar = document.querySelector("#aceptar")
 
-$botonAceptar.onclick= function(){
-     let numeroFamilia= document.querySelectorAll("#inputFamilia")
-     console.log(numeroFamilia)
+$botonAceptar.onclick = function () {
+     let edadesEnLaFamilia = document.querySelectorAll("#inputFamilia")
+     console.log(edadesEnLaFamilia)
 
-     let numerosEnElArray 
-     for (i=0;i<numeroFamilia.length;i++) {
-          console.log(numeroFamilia[i].value)
+
+
+     let mayorDeEdad
+     let menorDeEdad
+     let edadPromedio
+     for (i = 0; i < numeroFamilia.length; i++) {
+          if(mayorDeEdad<edadesEnLaFamilia[i].value){
+               mayorDeEdad=edadesEnLaFamilia[i].value
+          } else if (mayorDeEdad>edadesEnLaFamilia[i].value){
+               menorDeEdad=edadesEnLaFamilia[i].value
+          }
+          edadPromedio+=edadesEnLaFamilia[i].value
           
-     }
+          console.log(numeroFamilia[i].value)
+
+     }promediar(edadPromedio)
 
 }
 
@@ -68,7 +88,7 @@ $botonAceptar.onclick= function(){
 
 /*
 
-               /*if (i == numeroDelGrupoFamiliar) { 
+               /*if (i == numeroDelGrupoFamiliar) {
                     let $botonConfirmar = document.createElement("button")
                     $botonConfirmar.id = 'botonConfirmar'
                     $botonConfirmar.innerText = 'Confirmar'
