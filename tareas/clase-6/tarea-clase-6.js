@@ -16,10 +16,10 @@ const $botonIngresar = document.querySelector("#ingresar")
 $botonIngresar.onclick = function () {
      let numeroDelGrupoFamiliar = Number(document.querySelector("#numeroDelGrupoFamiliar").value);
      let nodoPaginaTexto = document.querySelector('body')
-     let divFamilia = document.querySelector("div#divFamilia")
+     let divFamilia = document.querySelector("div#familia")
 
      if (numeroDelGrupoFamiliar > 0 && numeroDelGrupoFamiliar != null) {
-          document.querySelector("div#divFamilia").style = "display:block"
+          document.querySelector("div#familia").style = "display:block"
      }
 
 
@@ -50,10 +50,10 @@ $botonIngresar.onclick = function () {
 }
 
 
-let promediar= function(arrayDeNumeros){
-     let cantidadDeNumeros= (arrayDeNumeros.length+1)
+let promediar = function (arrayDeNumeros,numeroParaPromediar) {
+     let cantidadDeNumeros = (arrayDeNumeros.length)
 
-     return arrayDeNumeros/cantidadDeNumeros
+     return numeroParaPromediar / cantidadDeNumeros
 }
 
 
@@ -62,25 +62,25 @@ let $botonAceptar = document.querySelector("#aceptar")
 
 $botonAceptar.onclick = function () {
      let edadesEnLaFamilia = document.querySelectorAll("#inputFamilia")
-     console.log(edadesEnLaFamilia)
+     
+     let mayorDeEdad = 0
+     let menorDeEdad = 0
+     let edadPromedio = 0
+     let edadesSumadas = 0
+     for (i = 0; i < edadesEnLaFamilia.length; i++) {
+          if (mayorDeEdad < edadesEnLaFamilia[i].value) {
+               mayorDeEdad = Number(edadesEnLaFamilia[i].value)
 
+          } if (menorDeEdad > edadesEnLaFamilia[i].value||menorDeEdad==0) {
 
-
-     let mayorDeEdad
-     let menorDeEdad
-     let edadPromedio
-     for (i = 0; i < numeroFamilia.length; i++) {
-          if(mayorDeEdad<edadesEnLaFamilia[i].value){
-               mayorDeEdad=edadesEnLaFamilia[i].value
-          } else if (mayorDeEdad>edadesEnLaFamilia[i].value){
-               menorDeEdad=edadesEnLaFamilia[i].value
+               menorDeEdad = Number(edadesEnLaFamilia[i].value)
           }
-          edadPromedio+=edadesEnLaFamilia[i].value
-          
-          console.log(numeroFamilia[i].value)
-
-     }promediar(edadPromedio)
-
+          edadesSumadas += Number(edadesEnLaFamilia[i].value)
+     } edadPromedio = promediar(edadesEnLaFamilia,edadesSumadas)
+     
+     let edadesRelevantes=document.querySelector("div#edades-relevantes")
+     edadesRelevantes.innerText= 'La edad promedio de tu familia es de ='+edadPromedio
+//     console.log(edadPromedio)
 }
 
 //
