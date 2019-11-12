@@ -8,23 +8,30 @@ $boton.onclick = function () {
   let edad = document.querySelector("#edad").value
   let nodoDelDocumento = document.querySelector("body")
   let parrafoNuevo = document.createElement("p")
+  parrafoNuevo.id = "parrafo-nuevo"
   //nodoDelDocumento.appendChild(parrafoNuevo)
   parrafoNuevo.innerText = "Hola " + nombre + ", tus datos estarán ordenados abajo:"
 
   //  console.log(nombre + segundoNombre + apellido + edad)
 
-  let parrafoPrimerNombre = "Primer nombre: " + nombre
-  let parrafoSegundoNombre = "Segundo nombre: " + segundoNombre
-  let parrafoApellido = "Apellido: " + apellido
-  let parrafoEdad = "Edad: " + edad
+
+
+  let oracionPrimerNombre = document.createElement("p")
+  oracionPrimerNombre.innerText = ("Primer nombre: " + nombre)
+  let oracionSegundoNombre = document.createElement("p")
+  oracionSegundoNombre.innerText = ("Segundo nombre: " + segundoNombre)
+  let oracionApellido = document.createElement("p")
+  oracionApellido.innerText = ("Apellido: " + apellido)
+  let oracionEdad = document.createElement("p")
+  oracionEdad.innerText = ("Edad: " + edad)
 
   nodoDelDocumento.appendChild(parrafoNuevo)
-  parrafoNuevo.appendChild(parrafoPrimerNombre)
-  parrafoNuevo.appendChild(parrafoSegundoNombre)
-  parrafoNuevo.appendChild(parrafoApellido)
-  parrafoNuevo.appendChild(parrafoEdad)
+  parrafoNuevo.appendChild(oracionPrimerNombre)
+  parrafoNuevo.appendChild(oracionSegundoNombre)
+  parrafoNuevo.appendChild(oracionApellido)
+  parrafoNuevo.appendChild(oracionEdad)
 
-  document.querySelector("bienvenido").innerText = "Bienvenido, " + primerNombre + "!"
+  document.querySelector("#bienvenido").innerText = "Bienvenido, " + nombre + "!"
 
   return false
 }
