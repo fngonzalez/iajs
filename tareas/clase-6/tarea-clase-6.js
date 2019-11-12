@@ -10,9 +10,10 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 
 
 
+
+
+
 const $botonIngresar = document.querySelector("#ingresar")
-
-
 $botonIngresar.onclick = function () {
      let numeroDelGrupoFamiliar = Number(document.querySelector("#numeroDelGrupoFamiliar").value);
      let nodoPaginaTexto = document.querySelector('body')
@@ -21,12 +22,6 @@ $botonIngresar.onclick = function () {
      if (numeroDelGrupoFamiliar > 0 && numeroDelGrupoFamiliar != null) {
           document.querySelector("div#familia").style = "display:block"
      }
-
-
-
-     //divFamilia.innerText = 'Ingresá las edades de tus familiares en el siguiente formulario:'
-     //nodoPaginaTexto.appendChild(nuevo)
-
      for (i = 1; i <= numeroDelGrupoFamiliar; i++) {
           let formularioFamilia = document.querySelector('form#formulario-familiar')
           let nuevoFormulario = document.createElement("form")
@@ -38,31 +33,23 @@ $botonIngresar.onclick = function () {
           nuevoLabel.innerText = ("Integrante " + i + ': ')
 
           formularioFamilia.appendChild(nuevoFormulario)
-
           nuevoFormulario.appendChild(nuevoLabel)
           nuevoFormulario.appendChild(nuevoInput)
 
      }
-
-
      return false
-
 }
 
 
 let promediar = function (arrayDeNumeros, numeroParaPromediar) {
      let cantidadDeNumeros = (arrayDeNumeros.length)
-
-     return numeroParaPromediar / cantidadDeNumeros
+     return (numeroParaPromediar / cantidadDeNumeros).toFixed(2)
 }
 
 
-
 let $botonAceptar = document.querySelector("#aceptar")
-
 $botonAceptar.onclick = function () {
      let edadesEnLaFamilia = document.querySelectorAll("#inputFamilia")
-
      let mayorDeEdad = 0
      let menorDeEdad = 0
      let edadPromedio = 0
@@ -70,19 +57,26 @@ $botonAceptar.onclick = function () {
      for (i = 0; i < edadesEnLaFamilia.length; i++) {
           if (mayorDeEdad < edadesEnLaFamilia[i].value) {
                mayorDeEdad = Number(edadesEnLaFamilia[i].value)
-
           } if (menorDeEdad > edadesEnLaFamilia[i].value || menorDeEdad == 0) {
-
                menorDeEdad = Number(edadesEnLaFamilia[i].value)
           }
           edadesSumadas += Number(edadesEnLaFamilia[i].value)
      } edadPromedio = promediar(edadesEnLaFamilia, edadesSumadas)
-
      let edadesRelevantes = document.querySelector("div#edades-relevantes")
-     edadesRelevantes.innerText = 'La edad promedio de tu familia es de: ' +
-          edadPromedio + " años" + 'La persona con menor edad tiene: ' + menorDeEdad + " años." +
-          '<br/>La persona con menor edad tiene: ' + mayorDeEdad + " años."
+     edadesRelevantes.innerText = 'La edad promedio de tu familia es de: ' + edadPromedio + " años. " + 'La persona con menor edad tiene: ' + menorDeEdad + " años. " + 'La persona con mayor edad tiene: ' + mayorDeEdad + " años. "
 }
+
+let $limpiar = document.querySelector("#limpiar")
+$limpiar.onclick = function () {
+     document.querySelector("div#familia").style = "display:none"
+     let edadesRelevantes = document.querySelector("div#edades-relevantes")
+     edadesRelevantes.innerText = ''
+     let formularioFamiliar = document.querySelector("form#formulario-familiar")
+     while (formularioFamiliar.firstChild) {
+          formularioFamiliar.removeChild(formularioFamiliar.firstChild);
+     }
+
+}  //Los labels tambien se van por el hecho de ser un firstchild, ¿verdad?
 
 /*
 
@@ -95,3 +89,8 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 
 
 */
+
+
+
+
+
