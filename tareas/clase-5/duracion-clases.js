@@ -1,16 +1,3 @@
-const convertirSegsAMin = function (segs, mins) {
-    if (segs > 60) {
-        segs -= 60
-        mins = mins + 1
-    }
-}
-const convertirMinAHs = function (mins, hs) {
-    if (mins > 60) {
-        mins -= 60
-        hs = hs + 1
-    }
-}
-
 let $aceptar = document.querySelector("#aceptar")
 
 $aceptar.onclick = function () {
@@ -25,21 +12,23 @@ $aceptar.onclick = function () {
 
     for (i = 0; i < duracionHs.length; i++) {
         contadorHs += Number(duracionHs[i].value)
-
     }
 
     for (i = 0; i < duracionMin.length; i++) {
         contadorMin += Number(duracionMin[i].value)
-        convertirMinAHs(contadorMin, contadorHs)
+        if (contadorMin > 60) {
+            contadorMin -= 60
+            contadorHs = contadorHs + 1
+        }
     }
-
-
 
     for (i = 0; i < duracionSeg.length; i++) {
         contadorSeg += Number(duracionSeg[i].value)
-        convertirSegsAMin(duracionSeg, duracionMin)
+        if (contadorSeg > 60) {
+            contadorSeg -= 60
+            contadorMin = contadorMin + 1
+        }
     }
-
 
     let nodoTexto = document.querySelector("body")
     let textoResultado = document.createElement("p")
@@ -47,4 +36,4 @@ $aceptar.onclick = function () {
     nodoTexto.appendChild(textoResultado)
 }
 
-//Qué tanto no respeto el 
+
