@@ -6,10 +6,8 @@ $boton.onclick = function () {
   let nombre = document.querySelector("#primer-nombre").value
   let apellido = document.querySelector("#apellido").value
   let edad = document.querySelector("#edad").value
-  let nodoDelDocumento = document.querySelector("body")
-  let parrafoNuevo = document.createElement("p")
-  parrafoNuevo.id = "parrafo-nuevo"
-  parrafoNuevo.innerText = "Hola " + nombre + ", tus datos estarán ordenados abajo:"
+  parrafoNuevo=document.querySelector("#parrafo-nuevo")
+  parrafoNuevo.innerText = "Hola " + nombre + ", tus datos son:"
   let datosResultados = (nombre + " " + segundoNombre + " " + apellido + " " + edad)
 
 
