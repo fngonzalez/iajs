@@ -6,10 +6,8 @@ let convertirSegundosAMinutos = function (segundos, minutos) {
 }
 
 let convertirMinutosAHoras = function (minutos, horas) {
-    while (minutos > 60) {
-        minutos -= 60
-        horas++
-    }
+
+
 }
 
 let $aceptar = document.querySelector("#aceptar")
@@ -31,16 +29,23 @@ $aceptar.onclick = function () {
 
     for (i = 0; i < duracionMin.length; i++) {
         contadorMin += Number(duracionMin[i].value)
+        if (contadorMin > 60) {
+            contadorMin -= 60
+            contadorHs++
+        }
     }
-    convertirMinutosAHoras(contadorMin, contadorHs)
+
 
     for (i = 0; i < duracionSeg.length; i++) {
         contadorSeg += Number(duracionSeg[i].value)
+        if (contadorSeg > 60) {
+            contadorSeg -= 60
+            contadorMin++
+        }
     }
-    convertirSegundosAMinutos(contadorSeg, contadorMin)
 
-    let nodoTexto = document.querySelector("body") 
-    let textoResultado = document.createElement("p") 
+    let nodoTexto = document.querySelector("body")
+    let textoResultado = document.createElement("p")
     textoResultado.innerText = "Las horas de duración del curso es de: " + contadorHs + ". Con " + contadorMin + " minutos, y" + contadorSeg + "segundos"
     nodoTexto.appendChild(textoResultado)
 }
