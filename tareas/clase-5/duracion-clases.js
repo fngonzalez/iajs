@@ -1,3 +1,16 @@
+let pasarSegundosAMinutos= function(segundos,minutos){
+    while(segundos>60){
+        segundos-=60
+        minutos++
+    }
+}
+
+let pasarMinutosAHoras= function(minutos,horas){
+    while(minutos>60){
+        minutos-=60
+        horas++
+    }
+}
 
 let calcularHoras
 
@@ -18,7 +31,7 @@ $aceptar.onclick = function () {
         contadorHs += Number(duracionHs[i].value)
 
     }
-    console.log(contadorHs)
+
 
 
 
@@ -26,12 +39,14 @@ $aceptar.onclick = function () {
         contadorMin += Number(duracionMin[i].value)
 
     }
-    console.log(contadorMin)
 
 
     for (i = 0; i < duracionSeg.length; i++) {
         contadorSeg += Number(duracionSeg[i].value)
 
     }
-    console.log(contadorSeg)
+
+
+
+
 }
