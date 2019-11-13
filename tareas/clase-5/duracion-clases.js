@@ -1,13 +1,14 @@
-let convertirSegundosAMinutos = function (segundos, minutos) {
-    while (segundos > 60) {
-        segundos -= 60
-        minutos++
+const convertirSegsAMin = function (segs, mins) {
+    if (segs > 60) {
+        return segs -= 60
+        mins = mins + 1
     }
 }
-
-let convertirMinutosAHoras = function (minutos, horas) {
-
-
+const convertirMinAHs = function (mins, hs) {
+    if (mins > 60) {
+        return mins -= 60
+        hs = hs + 1
+    }
 }
 
 let $aceptar = document.querySelector("#aceptar")
@@ -29,26 +30,21 @@ $aceptar.onclick = function () {
 
     for (i = 0; i < duracionMin.length; i++) {
         contadorMin += Number(duracionMin[i].value)
-        if (contadorMin > 60) {
-            contadorMin -= 60
-            contadorHs++
-        }
+        convertirMinAHs(contadorMin, contadorHs)
     }
+
 
 
     for (i = 0; i < duracionSeg.length; i++) {
         contadorSeg += Number(duracionSeg[i].value)
-        if (contadorSeg > 60) {
-            contadorSeg -= 60
-            contadorMin++
-        }
+        convertirSegsAMin(duracionSeg, duracionMin)
     }
+
 
     let nodoTexto = document.querySelector("body")
     let textoResultado = document.createElement("p")
-    textoResultado.innerText = "Las horas de duración del curso es de: " + contadorHs + ". Con " + contadorMin + " minutos, y" + contadorSeg + "segundos"
+    textoResultado.innerText = "Las horas de duración del curso es de: " + contadorHs + " horas. Con " + contadorMin + " minutos, y " + contadorSeg + " segundos"
     nodoTexto.appendChild(textoResultado)
 }
 
-
-
+//Qué tanto no respeto el 
