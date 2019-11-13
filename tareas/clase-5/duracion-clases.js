@@ -1,12 +1,12 @@
 const convertirSegsAMin = function (segs, mins) {
     if (segs > 60) {
-        return segs -= 60
+        segs -= 60
         mins = mins + 1
     }
 }
 const convertirMinAHs = function (mins, hs) {
     if (mins > 60) {
-        return mins -= 60
+        mins -= 60
         hs = hs + 1
     }
 }
