@@ -140,7 +140,8 @@ let calcularPromedio = function (numeros){
 }
 console.log (calcularPromedio(numeros))
 
-Desafío de programación #12: Crea una función que reciba un array de números y devuelva un array conteniendo solo los números positivos
+Desafío de programación #12: Crea una función que reciba un array de números y devuelva un 
+array conteniendo solo los números positivos
 
 let numeros = [-2, 3, -7, 9, -6, 0, -1, 2, -5]
 let numerosPositivos = []
@@ -417,12 +418,14 @@ Ejemplo:
 Desafío de programación #25: Crear una función que reciba dos arrays (arreglos) de números como argumentos y retorne un array con números que estén en uno u otro array, pero NO en ambos.
 Nota: Esto se llama "diferencia simétrica" entre conjuntos
 
-Desafío de programación #25: Crear una función que reciba dos arrays (arreglos) de números como argumentos y retorne un array con números que estén en uno u otro array, pero NO en ambos.
+Desafío de programación #25: Crear una función que reciba dos arrays (arreglos) de números como 
+argumentos y retorne un array con números que estén en uno u otro array, pero NO en ambos.
 Ejemplo:
   [1,2,3] y [3,7,11] debería devolver [1,2,7,11]
   [5,10,3] y [10,1] debería quedar como [5,3,1]
 
-Desafío de programación #26: Crear una función que reciba dos arrays de números y retorne un nuevo array con los elementos que se encuentren en el primer array, pero no en el segundo
+Desafío de programación #26: Crear una función que reciba dos arrays de números y retorne un 
+nuevo array con los elementos que se encuentren en el primer array, pero no en el segundo
 Nota; Esto se llama "resta" entre conjuntos
 Ejemplo:
   [5,1,2,3,4] y [3,4] debería devolver [5,1,2]
