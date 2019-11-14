@@ -4,31 +4,33 @@ let todosLosNumeros = []
 
 
 
-let promedio = function (arrayDeNumeros, contador) {
+let promedio = function (arrayDeNumeros) {
     let contador = 0
-    for (i = 0; i < arrayDeNumeros.length; i++) {
-        contador = contador + arrayDeNumeros[i]
+    for (let i of arrayDeNumeros) {
+        contador = contador + i
     }
-    return contador / (arrayDeNumeros.length + 1)
+    return contador / (arrayDeNumeros.length)
 
 }
 
 
-let menorDeUnString = function (stringDeNumeros, numeroMenor) {
+let menorDeUnString = function (stringDeNumeros) {
     let numeroMenor = 0
-    for (i = 0; i < stringDeNumeros.length; i++) {
-        if (numeroMenor < stringDeNumeros[i]) {
-            numeroMenor = stringDeNumeros[i]
+    for (let i of stringDeNumeros) {
+        if (numeroMenor > i) {
+            numeroMenor = i
+        } else if (numeroMenor == 0) {
+            numeroMenor = i
         }
     }
     return numeroMenor
 }
 
-let mayorEnUnString = function (stringDeNumeros, numeroMayor) {
+let mayorEnUnString = function (stringDeNumeros) {
     let numeroMayor = 0
-    for (i = 0; i < stringDeNumeros; i++) {
-        if (numeroMayor < stringDeNumeros[i]) {
-            numeroMayor = stringDeNumeros[i]
+    for (let i of stringDeNumeros) {
+        if (numeroMayor < i) {
+            numeroMayor = i
         }
     } return numeroMayor
 }
@@ -40,7 +42,10 @@ for (i = 0; i < numerosLi.length; i++) {
     }
 }
 
-promedio(todosLosNumeros, contador)
-menorDeUnString(todosLosNumeros, numeroMenor)
-mayorEnUnString(todosLosNumeros, numeroMayor)
+numeroPromedio = promedio(todosLosNumeros)
+numeroMenor = menorDeUnString(todosLosNumeros)
+numeroMayor = mayorEnUnString(todosLosNumeros)
 
+console.log(numeroPromedio)
+console.log(numeroMenor)
+console.log(numeroMayor)
