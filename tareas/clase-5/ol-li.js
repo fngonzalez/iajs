@@ -1,20 +1,46 @@
 let numerosLi = document.querySelectorAll("li")
 let numerosOl = document.querySelectorAll("ol")
-let todosLosNumeros = 0
+let todosLosNumeros = []
+
+
+
+let promedio = function (arrayDeNumeros, contador) {
+    let contador = 0
+    for (i = 0; i < arrayDeNumeros.length; i++) {
+        contador = contador + arrayDeNumeros[i]
+    }
+    return contador / (arrayDeNumeros.length + 1)
+
+}
+
+
+let menorDeUnString = function (stringDeNumeros, numeroMenor) {
+    let numeroMenor = 0
+    for (i = 0; i < stringDeNumeros.length; i++) {
+        if (numeroMenor < stringDeNumeros[i]) {
+            numeroMenor = stringDeNumeros[i]
+        }
+    }
+    return numeroMenor
+}
+
+let mayorEnUnString = function (stringDeNumeros, numeroMayor) {
+    let numeroMayor = 0
+    for (i = 0; i < stringDeNumeros; i++) {
+        if (numeroMayor < stringDeNumeros[i]) {
+            numeroMayor = stringDeNumeros[i]
+        }
+    } return numeroMayor
+}
 
 for (i = 0; i < numerosLi.length; i++) {
-    todosLosNumeros += Number(numerosLi[i].innerText)
+    todosLosNumeros.push(Number(numerosLi[i].innerText))
+    if (numerosOl[i] != undefined) {
+        todosLosNumeros.push(Number(numerosOl[i].innerText))
+    }
 }
-for (i = 0; i < numerosOl.length; i++) {
-    todosLosNumeros += Number(numerosOl[i].innerText)
-}
-console.log(todosLosNumeros)
 
+promedio(todosLosNumeros, contador)
+menorDeUnString(todosLosNumeros, numeroMenor)
+mayorEnUnString(todosLosNumeros, numeroMayor)
 
-let numerosEnArray
-let numeros = numerosLi.innerText + numerosOl.innerText
-
-for (i = 0; i < numeros.length; i++) {
-    numerosEnArray += Number(numeros[i].innerText)
-}
-console.log(numerosEnArray)
