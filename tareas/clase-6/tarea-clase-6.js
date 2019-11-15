@@ -1,4 +1,90 @@
 /*
+
+TAREA:
+Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar el salario anual de
+cada integrante de la familia que trabaje. Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario
+anual, menor salario anual, salario anual promedio y salario mensual promedio.
+
+Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
+
+
+*/
+
+
+
+let $botonEntrar = document.querySelector("#boton-entrar")
+
+$botonAceptar = function () {
+     let crearInput = document.createElement("input")
+     crearInput.id = "input-sueldo"
+     let crearLabel = document.createElement("label")
+     crearLabel.id = "label-sueldo"
+     let nodoPrincipal = document.querySelector("div")
+
+     let numeroDeLaFamilia = document.querySelector("#cantidad-de-personas").value
+
+     for (i = 0; i <= numeroDeLaFamilia; i++) {
+          nodoPrincipal.appendChild(crearLabel)
+          crearLabel.innerText = "Ingresá el sueldo del integrante " + i
+          nodoPrincipal.appendChild(crearInput)
+     }
+
+
+     document.querySelector("#boton-calcular").style = "display=block"
+
+
+
+
+
+
+
+
+}
+
+
+
+
+// let sueldoPromedio
+// let sueldoMayor
+// let sueldoMenor
+
+let $botonCalcular = document.querySelector("#boton-calcular")
+
+$botonCalcular = function () {
+     let todosLosSueldos = document.querySelectorAll("#input-sueldo")
+     let mayor = 0
+     let menor = 0
+     let promedio = 0
+     let divisor
+     for (let i of todosLosSueldos.value) {
+          if (i < menor) {
+               menor = i
+          }
+          else if (menor == 0)
+               menor = i
+
+          if (i > mayor) {
+               mayor = i
+          }
+          promedio = promedio + i
+          divisor++
+     }
+
+     document.querySelector("div#resultado").innerText = "El sueldo promedio de tu hogar es de: " +
+          (sueldoPromedio /divisor) + ", el más bajo es de: " + sueldoMenor + ", y el mayor es de : " + sueldoMayor
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
 TAREA: Empezar preguntando cuánta gente hay en el grupo familiar.
 Crear tantos inputs+labels como gente haya para completar la edad de cada integrante.
 Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad, la menor edad y 
@@ -78,17 +164,6 @@ $limpiar.onclick = function () {
 
 }  //Los labels tambien se van por el hecho de ser un firstchild, ¿verdad?
 
-/*
-
-TAREA:
-Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar el salario anual de
-cada integrante de la familia que trabaje. Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario
-anual, menor salario anual, salario anual promedio y salario mensual promedio.
-
-Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
-
-
-*/
 
 
 
