@@ -14,19 +14,19 @@ $aceptar.onclick = function () {
         contadorHs += Number(duracionHs[i].value)
     }
 
-    for (i = 0; i < duracionMin.length; i++) {
-        contadorMin += Number(duracionMin[i].value)
-        if (contadorMin > 60) {
-            contadorMin -= 60
-            contadorHs = contadorHs + 1
-        }
-    }
-
     for (i = 0; i < duracionSeg.length; i++) {
         contadorSeg += Number(duracionSeg[i].value)
         if (contadorSeg > 60) {
             contadorSeg -= 60
             contadorMin = contadorMin + 1
+        }
+    }
+
+    for (i = 0; i < duracionMin.length; i++) {
+        contadorMin += Number(duracionMin[i].value)
+        if (contadorMin > 60) {
+            contadorMin -= 60
+            contadorHs = contadorHs + 1
         }
     }
 
