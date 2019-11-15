@@ -17,7 +17,7 @@ let $botonAceptar = document.querySelector("#boton-entrar")
 $botonAceptar.onclick = function () {
 
      let numeroDeLaFamilia = document.querySelector("#cantidad-de-personas").value
-     let nodoPrincipal = document.querySelector("div#bienvenida")
+     let nodoPrincipal = document.querySelector("form#resultado")
      for (i = 1; i <= numeroDeLaFamilia; i++) {
           let crearForm = document.createElement("form")
           let crearInput = document.createElement("input")
@@ -66,7 +66,7 @@ $botonCalcular.onclick = function () {
           divisor++
      }
 
-     document.querySelector("div#resultado").innerText = "El sueldo promedio de tu hogar es de: " +
+     document.querySelector("form#resultado").innerText = "El sueldo promedio de tu hogar es de: " +
           (promedio / divisor) + ", el más bajo es de: " + menor + ", y el mayor es de : " +
           mayor
 
@@ -83,8 +83,8 @@ $calcularDeNuevo.onclick = function () {
      document.querySelector("#boton-calcular").style = "display:none"
 
 
-     let nodoPrincipal = document.querySelector("div#bienvenida")
-     let formsEnIndex= document.querySelectorAll("form")
+     let nodoPrincipal = document.querySelector("form#resultado")
+     //let formsEnIndex= document.querySelector("form")
      
      nodoPrincipal.removeChild(formsEnIndex)
 }
