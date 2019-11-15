@@ -70,7 +70,7 @@ $botonCalcular.onclick = function () {
           (promedio / divisor) + ", el más bajo es de: " + menor + ", y el mayor es de : " +
           mayor
 
-
+          let $botonCalcular = document.querySelector("#boton-calcular").style="display:none"
 }
 
 let $calcularDeNuevo = document.querySelector("#empezar-de-nuevo")
