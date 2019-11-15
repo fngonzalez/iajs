@@ -41,11 +41,23 @@ for (i = 0; i < numerosLi.length; i++) {
         todosLosNumeros.push(Number(numerosOl[i].innerText))
     }
 }
-
 numeroPromedio = promedio(todosLosNumeros)
 numeroMenor = menorDeUnString(todosLosNumeros)
 numeroMayor = mayorEnUnString(todosLosNumeros)
+let masRepetidos = document.querySelector("em")
 
-console.log(numeroPromedio)
-console.log(numeroMenor)
-console.log(numeroMayor)
+let contar = 0
+let guardar = 1
+let ElementoQueSeRepite
+for (i = 0; i < todosLosNumeros.length; i++) {
+    for (h = i; h < todosLosNumeros.length; h++) {
+        if (todosLosNumeros[i] == todosLosNumeros[h]) {
+            contar++
+        } if (guardar < contar) {
+            guardar = contar
+            ElementoQueSeRepite = todosLosNumeros[i]
+        }
+    }
+    contar = 0
+}
+masRepetidos.innerText = "El elemento repetido " + guardar + " veces, es: " + ElementoQueSeRepite
