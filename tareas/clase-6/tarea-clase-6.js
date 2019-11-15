@@ -76,7 +76,7 @@ $botonCalcular.onclick = function () {
      }
 
      document.querySelector("form#resultado").innerText = "El sueldo promedio de tu hogar es de: " +
-          (promedio / divisor) + ", el más bajo es de: " + menor + ", y el mayor es de : " +
+          (promedio / divisor).toFixed(2) + ", el más bajo es de: " + menor + ", y el mayor es de : " +
           mayor
 
      let $botonCalcular = document.querySelector("#boton-calcular").style = "display:none"
