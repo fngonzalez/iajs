@@ -86,7 +86,11 @@ $calcularDeNuevo.onclick = function () {
      let nodoPrincipal = document.querySelector("form#resultado")
      //let formsEnIndex= document.querySelector("form")
      
-     nodoPrincipal.removeChild(formsEnIndex)
+     while (nodoPrincipal.firstChild) {
+          nodoPrincipal.removeChild(nodoPrincipal.firstChild);
+                }
+
+                document.querySelector("#empezar-de-nuevo").style=("display:none")
 }
 
 
