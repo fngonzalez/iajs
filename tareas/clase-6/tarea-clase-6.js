@@ -18,28 +18,33 @@ $botonAceptar.onclick = function () {
 
      let numeroDeLaFamilia = document.querySelector("#cantidad-de-personas").value
      let nodoPrincipal = document.querySelector("form#resultado")
-     for (i = 1; i <= numeroDeLaFamilia; i++) {
-          let crearForm = document.createElement("form")
-          let crearInput = document.createElement("input")
-          crearInput.id = "input-sueldo"
-          let crearLabel = document.createElement("label")
-          crearLabel.id = "label-sueldo"
-          crearLabel.innerText = "Ingresá el sueldo del integrante " + i + " :       "
-
-          nodoPrincipal.appendChild(crearForm)
-          nodoPrincipal.appendChild(crearLabel)
-
-          nodoPrincipal.appendChild(crearInput)
+     if (numeroDeLaFamilia < 1) {
+          nodoPrincipal.innerText = "Ingresá un número válido."
      }
+     else {
+          for (i = 1; i <= numeroDeLaFamilia; i++) {
+               let crearForm = document.createElement("form")
+               let crearInput = document.createElement("input")
+               crearInput.id = "input-sueldo"
+               crearInput.type = "number"
+               let crearLabel = document.createElement("label")
+               crearLabel.id = "label-sueldo"
+               crearLabel.innerText = "Ingresá el sueldo del integrante " + i + " :       "
 
-     document.querySelector("#cantidad-de-personas").style = "display:none"
-     document.querySelector("#boton-entrar").style = "display:none"
+               nodoPrincipal.appendChild(crearForm)
+               nodoPrincipal.appendChild(crearLabel)
+
+               nodoPrincipal.appendChild(crearInput)
+          }
+
+          document.querySelector("#cantidad-de-personas").style = "display:none"
+          document.querySelector("#boton-entrar").style = "display:none"
 
 
-     document.querySelector("#boton-calcular").style = "display=block"
+          document.querySelector("#boton-calcular").style = "display=block"
 
-     let $calcularDeNuevo = document.querySelector("#empezar-de-nuevo").style= "display:block"
-
+          let $calcularDeNuevo = document.querySelector("#empezar-de-nuevo").style = "display:block"
+     }
 }
 
 
@@ -54,23 +59,27 @@ $botonCalcular.onclick = function () {
      let promedio = 0
      let divisor = 0
      for (let i of todosLosSueldos) {
-          if (menor == 0)
-               menor = Number(i.value)
-          else if (Number(i.value) < menor) {
-               menor = Number(i.value)
+
+
+          if (Number(i.value) > 0) {
+               if (menor == 0)
+                    menor = Number(i.value)
+               else if (Number(i.value) < menor) {
+                    menor = Number(i.value)
+               }
+               if (Number(i.value) > mayor) {
+                    mayor = Number(i.value)
+               }
+               promedio = promedio + Number(i.value)
+               divisor++
           }
-          if (Number(i.value) > mayor) {
-               mayor = Number(i.value)
-          }
-          promedio = promedio + Number(i.value)
-          divisor++
      }
 
      document.querySelector("form#resultado").innerText = "El sueldo promedio de tu hogar es de: " +
           (promedio / divisor) + ", el más bajo es de: " + menor + ", y el mayor es de : " +
           mayor
 
-          let $botonCalcular = document.querySelector("#boton-calcular").style="display:none"
+     let $botonCalcular = document.querySelector("#boton-calcular").style = "display:none"
 }
 
 let $calcularDeNuevo = document.querySelector("#empezar-de-nuevo")
@@ -85,12 +94,12 @@ $calcularDeNuevo.onclick = function () {
 
      let nodoPrincipal = document.querySelector("form#resultado")
      //let formsEnIndex= document.querySelector("form")
-     
+
      while (nodoPrincipal.firstChild) {
           nodoPrincipal.removeChild(nodoPrincipal.firstChild);
-                }
+     }
 
-                document.querySelector("#empezar-de-nuevo").style=("display:none")
+     document.querySelector("#empezar-de-nuevo").style = ("display:none")
 }
 
 
