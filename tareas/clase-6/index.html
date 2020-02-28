@@ -10,22 +10,27 @@
 </head>
 
 <body>
+    <label>Hola, ingresa el número de personas que son en tu familia:</label>
+    <input type="number" id="numeroDelGrupoFamiliar">
+    <button id=ingresar>Ingresar ahora</button>
 
-    <div id="bienvenida">
-        <p>
-            <h2>Hola!
-                Podes calcular el salario mensual familiar haciendo solo 2 clicks.
-                Por favor, ingresá el número de personas que son en tu casa:</h2>
-        </p>
-        <input type="number" id="cantidad-de-personas" >
-        <button id="boton-entrar" >Aceptar.</button>
-    </div>
+    <form id="formulario-familiar">
 
-    <form id=resultado>
     </form>
+
+    <div id="familia" style="display: none;">
+        <button id="aceptar">Aceptar</button>
+        <button id="limpiar">Empezar de nuevo</button>
+
+        <div id="edades-relevantes">
+
+        </div>
     </div>
-    <button id="boton-calcular" style="display: none;">Calcular.</button>
-    <button id="empezar-de-nuevo" style="display: none;">Empezar de nuevo.</button>
+
+
+
+
+
 
     <script src='tarea-clase-6.js'></script>
 </body>
