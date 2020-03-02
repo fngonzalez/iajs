@@ -9,38 +9,53 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 
 
 */
+function crearInput (i){
+     let crearForm = document.createElement("form")
+     let crearInput = document.createElement("input")
+     crearInput.id = "input-sueldo"
+     crearInput.type = "number"
+     let crearLabel = document.createElement("label")
+     crearLabel.id = "label-sueldo"
+     crearLabel.innerText = "Ingresá el sueldo del integrante " + i + " :       "
+     nodoPrincipal.appendChild(crearForm)
+     nodoPrincipal.appendChild(crearLabel)
+     nodoPrincipal.appendChild(crearInput)
+}
+
+function esconder (algoParaEsconder){
+     document.querySelector(algoParaEsconder).style = "display:none"
+
+}
 
 
 
-let $botonAceptar = document.querySelector("#boton-entrar")
+
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+let $botonAceptar = document.querySelector("#ingresar")
 
 $botonAceptar.onclick = function () {
 
-     let numeroDeLaFamilia = document.querySelector("#cantidad-de-personas").value
+     let numeroDeLaFamilia = document.querySelector("numeroDelGrupoFamiliar").value
      let nodoPrincipal = document.querySelector("form#resultado")
      if (numeroDeLaFamilia < 1) {
           nodoPrincipal.innerText = "Ingresá un número válido."
      }
      else {
           for (i = 1; i <= numeroDeLaFamilia; i++) {
-               let crearForm = document.createElement("form")
-               let crearInput = document.createElement("input")
-               crearInput.id = "input-sueldo"
-               crearInput.type = "number"
-               let crearLabel = document.createElement("label")
-               crearLabel.id = "label-sueldo"
-               crearLabel.innerText = "Ingresá el sueldo del integrante " + i + " :       "
-
-               nodoPrincipal.appendChild(crearForm)
-               nodoPrincipal.appendChild(crearLabel)
-
-               nodoPrincipal.appendChild(crearInput)
+               crearInput(i)
           }
 
-          document.querySelector("#cantidad-de-personas").style = "display:none"
-          document.querySelector("#boton-entrar").style = "display:none"
-
-
+          esconder("#numeroDelGrupoFamiliar")
+          esconder("#boton-entrar")
           document.querySelector("#boton-calcular").style = "display=block"
 
           let $calcularDeNuevo = document.querySelector("#empezar-de-nuevo").style = "display:block"
@@ -50,7 +65,7 @@ $botonAceptar.onclick = function () {
 
 
 
-let $botonCalcular = document.querySelector("#boton-calcular")
+let $botonCalcular = document.querySelector("#aceptar")
 
 $botonCalcular.onclick = function () {
      let todosLosSueldos = document.querySelectorAll("#input-sueldo")
